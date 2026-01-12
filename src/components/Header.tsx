@@ -2,9 +2,11 @@
 
 import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';
-import { Maximize, Minimize, Bookmark, BookOpen, Trash2, Menu, X } from 'lucide-react';
+import { Maximize, Minimize, Bookmark, BookOpen, Trash2, Menu, X, Search, Zap, Printer } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useBookmarks } from '@/context/BookmarkContext';
+import { useActionMode } from '@/context/ActionContext';
+import { useSearch } from '@/context/SearchContext';
 import { usePathname } from 'next/navigation';
 
 interface HeaderProps {
@@ -16,7 +18,12 @@ export default function Header({ onToggleSidebar, isSidebarOpen }: HeaderProps) 
     const [isFullscreen, setIsFullscreen] = useState(false);
     const { bookmarks, toggleBookmark, isBookmarked, removeBookmark } = useBookmarks();
     const pathname = usePathname();
+    const { isActionMode, toggleActionMode } = useActionMode();
+    const { openSearch, isSearchOpen, closeSearch } = useSearch(); // Added isSearchOpen and closeSearch from context
+
     const [showBookmarks, setShowBookmarks] = useState(false);
+
+
 
     const toggleFullscreen = async () => {
         try {
@@ -114,7 +121,39 @@ export default function Header({ onToggleSidebar, isSidebarOpen }: HeaderProps) 
                     <Bookmark size={18} fill={isCurrentBookmarked ? 'currentColor' : 'none'} />
                 </button>
 
-                {/* Bookmarks Dropdown */}
+                {/* Search Trigger */}
+                <button
+                    onClick={openSearch}
+                    className="p-2 hover:bg-white/5 rounded-lg text-gray-400 hover:text-white transition-colors flex items-center gap-2 group"
+                    title="Search (Cmd+K)"
+                >
+                    <Search className="w-5 h-5" />
+                    <span className="hidden md:inline text-xs text-gray-500 font-mono group-hover:text-gray-400">Cmd+K</span>
+                </button>
+
+                {/* Action Mode Toggle */}
+
+                <button
+                    onClick={toggleActionMode}
+                    className="btn-icon"
+                    aria-label={isActionMode ? "Exit Action Mode" : "Enter Action Mode (Code Only)"}
+                    style={{ color: isActionMode ? '#fbbf24' : 'var(--foreground)' }}
+                    title="Action Mode (Code Only)"
+                >
+                    <Zap size={18} fill={isActionMode ? 'currentColor' : 'none'} />
+                </button>
+
+                {/* Print/Export Button */}
+                <Link
+                    href="/manual/print"
+                    className="btn-icon flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+                    title="Export as PDF"
+                    target="_blank"
+                >
+                    <Printer size={18} />
+                </Link>
+
+                {/* Bookmarks Toggle */}
                 <div style={{ position: 'relative' }}>
                     <button
                         onClick={() => setShowBookmarks(!showBookmarks)}
@@ -229,6 +268,7 @@ export default function Header({ onToggleSidebar, isSidebarOpen }: HeaderProps) 
                 {/* Theme Toggle */}
                 <ThemeToggle />
             </div>
+
         </header>
     );
 }

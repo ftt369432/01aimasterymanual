@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import ChapterTracker from '@/components/ChapterTracker';
+import ContentWrapper from '@/components/ContentWrapper';
 
 export default async function ChapterPage({
     params,
@@ -78,10 +79,7 @@ export default async function ChapterPage({
             </div>
 
             <div className="glass-panel" style={{ padding: '3rem', minHeight: '60vh', marginBottom: '3rem' }}>
-                <div
-                    style={{ lineHeight: 1.8, fontSize: '1.125rem' }}
-                    dangerouslySetInnerHTML={{ __html: (chapter as any).content || '<p>Content coming soon...</p>' }}
-                />
+                <ContentWrapper content={(chapter as any).content || '<p>Content coming soon...</p>'} />
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem' }}>

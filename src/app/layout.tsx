@@ -3,7 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { BookmarkProvider } from "@/context/BookmarkContext";
+import { ActionProvider } from "@/context/ActionContext";
+import { SearchProvider } from "@/context/SearchContext";
 import Header from "@/components/Header";
+import { CortexSearch } from "@/components/CortexSearch";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,8 +33,13 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
         <ThemeProvider defaultTheme="dark" storageKey="ai-mastery-theme">
           <BookmarkProvider>
-            <Header />
-            {children}
+            <ActionProvider>
+              <SearchProvider>
+                <Header />
+                {children}
+                <CortexSearch />
+              </SearchProvider>
+            </ActionProvider>
           </BookmarkProvider>
         </ThemeProvider>
       </body>

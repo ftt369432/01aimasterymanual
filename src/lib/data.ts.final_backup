@@ -277,25 +277,25 @@ export const courseModules = [
                     <p>Create a folder called <code>.constantprompt</code> in your project root. Inside, create a file called <code>constantprompt.md</code>.</p>
                     <p>Start simple. You can always add more later. Here is a minimal template:</p>
 
-                    <div class="glass-panel" style="padding: 1.5rem; margin: 1.5rem 0; font-family: monospace; font-size: 0.85rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);">
-                        <p style="color: #a78bfa; margin-bottom: 0.5rem;"># 1. Role</p>
-                        <p>- Senior TypeScript Engineer. Concise. No yapping.</p>
-                        
-                        <p style="color: #a78bfa; margin-bottom: 0.5rem; margin-top: 1rem;"># 2. Tech Stack</p>
-                        <p>- Frontend: Next.js 14, Tailwind, Lucide.</p>
-                        <p>- Backend: Supabase (Auth + DB).</p>
-                        <p>- No generic CSS. Tailwind only.</p>
-                    
-                        <p style="color: #a78bfa; margin-bottom: 0.5rem; margin-top: 1rem;"># 3. The Danger Zone (Off-Limits)</p>
-                        <p>- NEVER touch /src/auth/* without asking.</p>
-                        <p>- NEVER delete files. Only rename to .backup.</p>
-                        <p>- NEVER use 'any'. Explicit types only.</p>
-                    
-                        <p style="color: #a78bfa; margin-bottom: 0.5rem; margin-top: 1rem;"># 4. Mandatory Workflow</p>
-                        <p>1. Read the file.</p>
-                        <p>2. Plan the change.</p>
-                        <p>3. Write the code.</p>
-                        <p>4. Verify imports.</p>
+                    <div class="glass-panel" style="padding: 1.5rem; margin: 1.5rem 0; font-family: monospace; font-size: 0.85rem;">
+                        <p style="color: var(--primary); margin-bottom: 1rem;"><strong># Project ConstantPrompt</strong></p>
+                        <p><strong>## Overview</strong></p>
+                        <p>This is [PROJECT NAME]. It does [CORE PURPOSE].</p>
+                        <p style="margin-top: 1rem;"><strong>## Tech Stack</strong></p>
+                        <p>- Framework: [e.g., Next.js 14]</p>
+                        <p>- Language: [e.g., TypeScript]</p>
+                        <p>- Styling: [e.g., Tailwind CSS]</p>
+                        <p style="margin-top: 1rem;"><strong>## Project Structure</strong></p>
+                        <p>- /src/components - Reusable UI components</p>
+                        <p>- /src/lib - Utilities and data</p>
+                        <p>- /src/app - Page routes</p>
+                        <p style="margin-top: 1rem;"><strong>## Rules</strong></p>
+                        <p>- Always use TypeScript</p>
+                        <p>- Components go in /src/components</p>
+                        <p>- Do not modify [PROTECTED FILES]</p>
+                        <p style="margin-top: 1rem;"><strong>## Current Status</strong></p>
+                        <p>Working on: [CURRENT FEATURE]</p>
+                        <p>Last updated: [DATE]</p>
                     </div>
 
                     <h3>Advanced: Architecture Maps</h3>
@@ -1479,7 +1479,7 @@ export const courseModules = [
             }
         ]
     },
-    {
+        {
         title: "Module 10: Advanced AI Orchestration",
         slug: "advanced-orchestration",
         desc: "Management without drowning. Design systems that can evolve.",
@@ -1595,7 +1595,7 @@ export const courseModules = [
             }
         ]
     },
-    {
+        {
         title: "Module 11: The Agentic Architect",
         slug: "agentic-architect",
         desc: "Design systems that think, act, adapt, and endure.",
@@ -1715,7 +1715,7 @@ export const courseModules = [
             }
         ]
     },
-    {
+        {
         title: "Module 12: The Zero-Cost Stack",
         slug: "zero-cost-stack",
         desc: "The best free tools for Hosting, Backend, and AI. Where to build your empire for $0.",
@@ -1883,7 +1883,7 @@ export const courseModules = [
             }
         ]
     },
-    {
+        {
         title: "Module 14: The Modern Builder's Toolkit",
         slug: "modern-builders-toolkit",
         desc: "The exact stack to build a million-dollar one-person company.",

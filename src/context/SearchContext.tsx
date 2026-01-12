@@ -1,0 +1,46 @@
+'use client';
+
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+
+interface SearchContextType {
+    isSearchOpen: boolean;
+    openSearch: () => void;
+    closeSearch: () => void;
+    toggleSearch: () => void;
+}
+
+const SearchContext = createContext<SearchContextType | undefined>(undefined);
+
+export function SearchProvider({ children }: { children: ReactNode }) {
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+    const openSearch = () => setIsSearchOpen(true);
+    const closeSearch = () => setIsSearchOpen(false);
+    const toggleSearch = () => setIsSearchOpen(prev => !prev);
+
+    // Global keyboard listener
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                setIsSearchOpen(prev => !prev);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
+    return (
+        <SearchContext.Provider value={{ isSearchOpen, openSearch, closeSearch, toggleSearch }}>
+            {children}
+        </SearchContext.Provider>
+    );
+}
+
+export function useSearch() {
+    const context = useContext(SearchContext);
+    if (context === undefined) {
+        throw new Error('useSearch must be used within a SearchProvider');
+    }
+    return context;
+}

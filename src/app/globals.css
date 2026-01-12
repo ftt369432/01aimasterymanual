@@ -226,6 +226,255 @@ p {
 .text-gradient {
   background: linear-gradient(to right, var(--primary), var(--accent));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Action Mode (Code Only View) */
+.action-mode-active>p,
+.action-mode-active>ul,
+.action-mode-active>ol,
+.action-mode-active>blockquote {
+  display: none !important;
+}
+
+.action-mode-active>div.glass-panel {
+  border: 1px solid #fbbf24 !important;
+  /* Gold border to indicate priority */
+}
+
+/* Ensure glass panel contents are visible */
+.action-mode-active>div.glass-panel p,
+.action-mode-active>div.glass-panel ul,
+.action-mode-active>div.glass-panel ol {
+  display: block !important;
+}
+
+.action-mode-active>h1,
+.action-mode-active>h2,
+.action-mode-active>h3,
+.action-mode-active>h4 {
+  opacity: 0.7;
+  /* Slight dim to focus on code/cheatsheets */
+}
+
+/* Cortex Search Modal (Vanilla CSS) */
+.search-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.search-modal-container {
+  width: 100%;
+  max-width: 42rem;
+  /* max-w-2xl */
+  background-color: var(--card);
+  /* Theme aware */
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  /* rounded-xl */
+  box-shadow: var(--glass-shadow-hover);
+  overflow: hidden;
+  animation: zoomIn 0.2s ease-out;
+  color: var(--foreground);
+}
+
+.search-header {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--foreground);
+  font-size: 1.125rem;
+  /* text-lg */
+  margin-left: 0.75rem;
+}
+
+.search-input::placeholder {
+  color: var(--foreground);
+  opacity: 0.5;
+}
+
+.search-results {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  border-left: 2px solid transparent;
+}
+
+.search-result-item:hover,
+.search-result-item.selected {
+  background-color: var(--secondary);
+}
+
+.search-result-item.selected {
+  background-color: var(--secondary);
+  border-left-color: var(--primary);
+}
+
+/* Specific text visibility in results */
+.search-result-item .result-title {
+  color: var(--foreground);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.search-result-item .result-snippet {
+  color: var(--foreground);
+  opacity: 0.7;
+  font-size: 0.75rem;
+  margin-top: 0.125rem;
+}
+
+.search-kbd {
+  display: inline-flex;
+  height: 1.5rem;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border);
+  background-color: var(--secondary);
+  padding: 0 0.375rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--foreground);
+  opacity: 0.7;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Print Styles */
+@media print {
+
+  /* Hide UI Elements */
+  header,
+  nav,
+  aside,
+  .cortex-search-trigger,
+  .action-mode-toggle,
+  .theme-toggle,
+  .chapter-tracker,
+  button {
+    display: none !important;
+  }
+
+  /* Reset Layout for Print */
+  body,
+  html {
+    background: white !important;
+    color: black !important;
+    overflow: visible !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .print-container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 2cm !important;
+  }
+
+  /* Page Breaks */
+  .break-before-page {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .break-after-page {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .break-inside-avoid-page {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Typography Overrides */
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  p,
+  ul,
+  ol,
+  li {
+    color: #1f2937 !important;
+    /* gray-800 */
+    font-size: 12pt !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Clean Code Blocks for Print */
+  pre,
+  code {
+    background-color: #f3f4f6 !important;
+    /* gray-100 */
+    color: black !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 4px !important;
+    white-space: pre-wrap !important;
+    /* Wrap long long lines */
+  }
+
+  a {
+    text-decoration: none !important;
+    color: black !important;
+  }
+
+  /* Hide Glass Effects */
+  .glass-panel {
+    background: none !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
 }
