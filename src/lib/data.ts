@@ -563,6 +563,16 @@ export const courseModules = [
                         <strong>The Core Builder Prompt:</strong><br/>
                         "You are a senior engineer. Do not guess. Before writing code, respond with: 1. Assumptions, 2. Step-by-step plan, 3. The code."
                     </div>
+                    
+                    <div class="glass-panel" style="padding: 1.5rem; margin: 2rem 0; background: linear-gradient(135deg, rgba(79,70,229,0.1) 0%, rgba(147,51,234,0.1) 100%);">
+                        <h4 style="margin-top: 0;">Quick Start Cheat Sheet</h4>
+                        <ul>
+                            <li><strong>Anti-Chaos Rule:</strong> One step at a time. Verify before proceeding.</li>
+                            <li><strong>Verification Loop:</strong> Request → Receive → Run → Review → Proceed</li>
+                            <li><strong>When stuck:</strong> Rollback to last working state.</li>
+                            <li><strong>Test:</strong> If you can not explain it in one sentence, stop.</li>
+                        </ul>
+                    </div>
                 `
             },
             {
@@ -580,6 +590,16 @@ export const courseModules = [
                     <blockquote style="border-left: 4px solid #4f46e5; padding-left: 1rem; font-style: italic; margin: 1rem 0;">
                         Mistake: building a platform before you’ve earned it. If nobody is using it yet, don’t build for scale.
                     </blockquote>
+                    
+                    <div class="glass-panel" style="padding: 1.5rem; margin: 2rem 0; background: linear-gradient(135deg, rgba(79,70,229,0.1) 0%, rgba(147,51,234,0.1) 100%);">
+                        <h4 style="margin-top: 0;">Quick Start Cheat Sheet</h4>
+                        <ul>
+                            <li><strong>Scripts:</strong> Fast, ugly, disposable. Perfect for prototypes.</li>
+                            <li><strong>Platforms:</strong> Robust, maintainable, expensive. For real users.</li>
+                            <li><strong>Default:</strong> Start as a script. Graduate when proven.</li>
+                            <li><strong>Warning Sign:</strong> Building platform architecture before validating the idea.</li>
+                        </ul>
+                    </div>
                 `
             },
             {
@@ -603,6 +623,16 @@ export const courseModules = [
                         <strong>The Blueprint Prompt:</strong><br/>
                         "Describe the system at a high level. List each component and its responsibility. Do not write code yet."
                     </div>
+                    
+                    <div class="glass-panel" style="padding: 1.5rem; margin: 2rem 0; background: linear-gradient(135deg, rgba(79,70,229,0.1) 0%, rgba(147,51,234,0.1) 100%);">
+                        <h4 style="margin-top: 0;">Quick Start Cheat Sheet</h4>
+                        <ul>
+                            <li><strong>4 Layers:</strong> Input → Logic → Storage → Output</li>
+                            <li><strong>Before Coding:</strong> Ask AI for the blueprint first</li>
+                            <li><strong>Boundaries:</strong> Each component has one job</li>
+                            <li><strong>Debug Tip:</strong> When confused, identify which layer the problem is in</li>
+                        </ul>
+                    </div>
                 `
             },
             {
@@ -622,6 +652,16 @@ export const courseModules = [
                     <blockquote style="border-left: 4px solid #4f46e5; padding-left: 1rem; font-style: italic; margin: 1rem 0;">
                         Mastery is repetition without panic.
                     </blockquote>
+                    
+                    <div class="glass-panel" style="padding: 1.5rem; margin: 2rem 0; background: linear-gradient(135deg, rgba(79,70,229,0.1) 0%, rgba(147,51,234,0.1) 100%);">
+                        <h4 style="margin-top: 0;">Quick Start Cheat Sheet</h4>
+                        <ul>
+                            <li><strong>Phase 1:</strong> Skeleton — Empty structure, runs without errors</li>
+                            <li><strong>Phase 2:</strong> Muscle — Logic works, still ugly</li>
+                            <li><strong>Phase 3:</strong> Skin — Polish and edge cases</li>
+                            <li><strong>Build Loop:</strong> Specify → Plan → Generate → Run → Fix → Commit</li>
+                        </ul>
+                    </div>
                 `
             }
         ]
@@ -644,6 +684,16 @@ export const courseModules = [
                     <h4>Why the 'God Prompt' Always Fails</h4>
                     <p>Trying to make one prompt do everything (plan, build, debug) creates confusion, not expertise. It lacks prioritization and checkpoints.</p>
                     <p><strong>Managers Don't Do the Work:</strong> They define outcomes, assign tasks, and review results. Your job is <em>clarity</em>, not effort.</p>
+                    
+                    <div class="glass-panel" style="padding: 1.5rem; margin: 2rem 0; background: linear-gradient(135deg, rgba(79,70,229,0.1) 0%, rgba(147,51,234,0.1) 100%);">
+                        <h4 style="margin-top: 0;">Quick Start Cheat Sheet</h4>
+                        <ul>
+                            <li><strong>Agent Formula:</strong> AI + Role + Tools + Memory + Rules</li>
+                            <li><strong>Manager vs Worker:</strong> Manager plans, Worker executes</li>
+                            <li><strong>God Prompt Fail:</strong> One prompt doing everything fails</li>
+                            <li><strong>Your Job:</strong> Clarity, not effort</li>
+                        </ul>
+                    </div>
                 `
             },
             {
@@ -663,6 +713,16 @@ export const courseModules = [
                     <p>Has a narrow role. Solves one task. Produces concrete output.</p>
                     <div class="glass-panel" style="padding: 1rem; margin: 1rem 0;">
                         <strong>Worker Prompt:</strong> "You are a backend engineer. Complete ONLY task #3. Follow criteria exactly. If blocked, explain why."
+                    </div>
+                    
+                    <div class="glass-panel" style="padding: 1.5rem; margin: 2rem 0; background: linear-gradient(135deg, rgba(79,70,229,0.1) 0%, rgba(147,51,234,0.1) 100%);">
+                        <h4 style="margin-top: 0;">Quick Start Cheat Sheet</h4>
+                        <ul>
+                            <li><strong>Manager:</strong> Plans, breaks down, assigns. Never writes code.</li>
+                            <li><strong>Worker:</strong> Executes specific task, narrow focus.</li>
+                            <li><strong>Key Rule:</strong> Review manager's plan before workers execute.</li>
+                            <li><strong>Debug Tip:</strong> When output is wrong, check if roles were mixed.</li>
+                        </ul>
                     </div>
                 `
             },
@@ -684,6 +744,16 @@ export const courseModules = [
                         <li><strong>Long-Term:</strong> Files, RAG, Databases. Agents <em>retrieve</em> memory, they don't magically retain it.</li>
                     </ul>
                     <p><strong>Fix:</strong> Write decisions down. Store specs. Re-inject context deliberately.</p>
+                    
+                    <div class="glass-panel" style="padding: 1.5rem; margin: 2rem 0; background: linear-gradient(135deg, rgba(79,70,229,0.1) 0%, rgba(147,51,234,0.1) 100%);">
+                        <h4 style="margin-top: 0;">Quick Start Cheat Sheet</h4>
+                        <ul>
+                            <li><strong>Tools:</strong> Filesystem, Terminal, Browser, APIs</li>
+                            <li><strong>Security:</strong> Least privilege - only give needed access</li>
+                            <li><strong>Memory:</strong> Short-term (context), Long-term (files/RAG)</li>
+                            <li><strong>Fix:</strong> Write things down. Re-inject context each session.</li>
+                        </ul>
+                    </div>
                 `
             },
             {
@@ -703,6 +773,16 @@ export const courseModules = [
                     <blockquote style="border-left: 4px solid #4f46e5; padding-left: 1rem; font-style: italic; margin: 1rem 0;">
                         A good agent makes you calmer, not busier.
                     </blockquote>
+                    
+                    <div class="glass-panel" style="padding: 1.5rem; margin: 2rem 0; background: linear-gradient(135deg, rgba(79,70,229,0.1) 0%, rgba(147,51,234,0.1) 100%);">
+                        <h4 style="margin-top: 0;">Quick Start Cheat Sheet</h4>
+                        <ul>
+                            <li><strong>Workflow:</strong> Define Goal → Manager Breaks Down → Workers Execute → You Decide</li>
+                            <li><strong>HITL:</strong> Human-in-the-loop for critical actions</li>
+                            <li><strong>Purpose:</strong> Protect human attention, not replace humans</li>
+                            <li><strong>Success:</strong> A good agent makes you calmer, not busier</li>
+                        </ul>
+                    </div>
                 `
             }
         ]
