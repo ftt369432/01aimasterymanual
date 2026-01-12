@@ -174,6 +174,55 @@ export const courseModules = [
         desc: "Turning skills into income.",
         chapters: [
             {
+                title: "Launch Strategy: The One-Prompt Build",
+                slug: "launch-strategy",
+                content: `
+                    <h3>Launch Fast with "Drop-in" Prompts</h3>
+                    <p>The fastest way to validate a business idea is to build the MVP (Minimum Viable Product) in a single session. We can use sophisticated "One-Prompt" strategies to generate nearly complete applications.</p>
+                    
+                    <h4>Case Study 1: The "All-in-One" Workout App</h4>
+                    <p>This prompt works because it covers functionality, design, and a unique AI differentiator in one go.</p>
+                    <div class="glass-panel" style="padding: 1rem; margin: 1rem 0; font-family: monospace; font-size: 0.9rem;">
+                        "Create a simple workout tracker application. Make it a mobile responsive app with a simple yet bold design. Let the user be able to build a workout, add exercises, track their workouts with sets and reps, and add a section to log progress like body measurements and weight. For the exercises, add a YouTube link which shows proper form so when we are tracking a workout we can check how to do the exercise. Finally, add a feature where we can record a video performing an exercise and tag the exercise, then an AI backend would check our form and correct any issues."
+                    </div>
+                    <p><strong>Why it works:</strong></p>
+                    <ul>
+                        <li><strong>Value-Add:</strong> The YouTube links instantly make it more useful than a notebook.</li>
+                        <li><strong>Differentiation:</strong> The AI form-check feature (even if mocked initially) sells the vision.</li>
+                    </ul>
+
+                    <h4>Case Study 2: The "Retention-Focused" Budget App</h4>
+                    <p>This prompt is designed to solve the specific "Blank Slate" problem that kills 70% of apps.</p>
+                    <div class="glass-panel" style="padding: 1rem; margin: 1rem 0; font-family: monospace; font-size: 0.9rem;">
+                        "Create a mobile-responsive budgeting app that allows users to log transactions and create categories. To improve onboarding, do not start with a blank screen; instead, allow users to select from a list of common categories during sign-up. Include an AI recommendation feature where the user inputs their post-tax income, and the app automatically allocates budget limits to categories based on the '50/30/20 rule' (50% needs, 30% wants, 20% savings). Additionally, include a dashboard that tracks daily spending and a lock screen widget that displays total spend for the week."
+                    </div>
+                `
+            },
+            {
+                title: "Implementation & Monetization",
+                slug: "implementation-tips",
+                content: `
+                    <h3>The Stack for Speed</h3>
+                    <p>When you are building to test a market, you choose tools that reduce friction, not tools that are "pure".</p>
+                    
+                    <h4>1. The IDE Strategy</h4>
+                    <p><strong>Use Replit (or similar cloud IDEs).</strong> For one-shot prompts, environments like Replit often handle dependency installation and environment setup faster than local scaffolding, requiring less "iterative prompting" to fix config bugs.</p>
+                    
+                    <h4>2. metrics from Day 1</h4>
+                    <p><strong>Install Analytics Immediately.</strong> (e.g., PostHog). You need to know if users actally log an item within 48 hours. If they don't, your onboarding is broken.</p>
+                    
+                    <h4>3. The "4-Screen" Monetization Flow</h4>
+                    <p>If you plan to charge, do not put the paywall at the end of a long journey. Use the <strong>Steven Cravotta Method</strong>:</p>
+                    <ol>
+                        <li><strong>Screen 1:</strong> value Proposition (The Promise)</li>
+                        <li><strong>Screen 2:</strong> Data Collection (The Investment)</li>
+                        <li><strong>Screen 3:</strong> "Analyzing..." (Building Anticipation)</li>
+                        <li><strong>Screen 4:</strong> The Paywall (The Gate)</li>
+                    </ol>
+                    <p>Only let them access the core app <em>after</em> they commit.</p>
+                `
+            },
+            {
                 title: "The Productized Service",
                 slug: "productized-service",
                 content: `
@@ -205,6 +254,65 @@ export const courseModules = [
                     <p>You don't need a website. You don't need business cards.</p>
                     <p><strong>1. The Boring Business Strategy:</strong> Find un-sexy businesses (Logistics, Law, Real Estate). They have the most manual work.</p>
                     <p><strong>2. The Demo Strategy:</strong> Don't tell them what you can do. Build a prototype for free and show them. "I built this for you over the weekend. Want to see how it works?"</p>
+                `
+            },
+            {
+                title: "The Master System Prompt",
+                slug: "master-system-prompt",
+                content: `
+                    <h3>The AI Strategic Advisor Persona</h3>
+                    <p>To build a truly defensible business, you need an AI partner that thinks in "loops" and "flywheels," not just straight-line task execution. Copy this system instruction to upgrade your AI assistant.</p>
+                    
+                    <h4>The Master Prompt</h4>
+                    <div class="glass-panel" style="padding: 1rem; margin: 1rem 0; font-family: monospace; font-size: 0.9rem; white-space: pre-wrap;">
+### ROLE & IDENTITY
+You are an expert AI CEO and Strategic Advisor. Your goal is not just to automate tasks but to help the user build a defensible, compounding business. You reject "straight-line" thinking in favor of "loops" and "flywheels."
+
+### CORE KNOWLEDGE BASE
+
+SECTION 1: VALIDATION (The Founders Triangle)
+Evaluate ideas against:
+1. Domain: 5+ years experience?
+2. Depth: Is it "play" for you but "work" for others?
+3. Distribution: Do you have an unfair advantage?
+
+SECTION 2: STRATEGIC GROWTH (The 4 Loops)
+1. Balance Loop: "Asymmetric Advantage" vs "Acute Customer Pain."
+2. Speed to Revenue Loop: "Launch, Learn, Level Up." Ship daily.
+3. Signal to Innovation Loop: User behavior is the only source of innovation.
+4. Sweat Equity Loop: Founder must do the unseen work.
+
+SECTION 3: OPERATIONS (The D.R.E.A.M. Machine)
+- D (Demand): Lead generation.
+- R (Revenue): Pricing.
+- E (Engine): Product delivery.
+- A (Admin): Finance/Legal.
+- M (Marketing): Brand.
+
+SECTION 4: THE TECH STACK FLYWHEEL
+- Lead Gen: Apollo -> Clay.
+- Nurture: Brevo -> Calendly.
+- Closing: Gamma -> Airtable -> Stripe.
+- Delivery: Lovable or Gumroad.
+- Automation: Zapier -> N8N.
+
+SECTION 5: DEFENSE (The 3 Moats)
+1. Counter-Positioning.
+2. Sticky Habits.
+3. Proprietary Data.
+
+### INTERACTION PROTOCOLS (OCEAN Framework)
+- O (Original)
+- C (Concrete)
+- E (Evident)
+- A (Assertive)
+- N (Narrative)
+                    </div>
+
+                    <h4>Why This Works</h4>
+                    <p><strong>1. The Founders Triangle:</strong> It forces you to validate before you build. If you don't have Domain, Depth, and Distribution, the AI will tell you to stop.</p>
+                    <p><strong>2. The D.R.E.A.M. Machine:</strong> It ensures you aren't just building a product (Engine) but neglecting the business (Demand, Revenue, Admin, Marketing).</p>
+                    <p><strong>3. The Tech Stack Flywheel:</strong> It provides a concrete, integrated toolchain that feeds into itself, rather than a random collection of SaaS tools.</p>
                 `
             }
         ]
