@@ -316,5 +316,203 @@ SECTION 5: DEFENSE (The 3 Moats)
                 `
             }
         ]
+    },
+    {
+        title: "Module 5: The New IDE Landscape",
+        slug: "new-ide-landscape",
+        desc: "The 'Vibe' Layer: Choosing and configuring your AI cockpit.",
+        chapters: [
+            {
+                title: "The Anatomy of an AI IDE",
+                slug: "anatomy-ai-ide",
+                content: `
+                    <h3>The Big Three</h3>
+                    <p>Understanding the current landscape of AI-integrated development environments:</p>
+                    <ul>
+                        <li><strong>Cursor:</strong> The current market leader for VS Code users.</li>
+                        <li><strong>Replit:</strong> Best for zero-setup, cloud-native development.</li>
+                        <li><strong>Windsurf (formerly Antigravity/Codeium):</strong> A strong competitor with deep context awareness.</li>
+                    </ul>
+
+                    <h4>Context Management</h4>
+                    <p>"Composer" and "Agent" modes differ from simple autocomplete. They don't just guess the next line; they understand the intent of the entire block or file.</p>
+
+                    <h4>Project Indexing</h4>
+                    <p>Why letting the AI "read" your whole folder is the secret to zero-shot success. Without indexing, the AI is blind to your project structure.</p>
+                `
+            },
+            {
+                title: "Setting Up Your Cockpit",
+                slug: "setting-up-cockpit",
+                content: `
+                    <h3>Cursor Deep Dive</h3>
+                    <p><strong>Rules provide sanity.</strong> Use <code>.cursorrules</code> to define coding standards and behavior.</p>
+                    
+                    <h3>Replit Agent</h3>
+                    <p>Building and deploying full-stack apps in a single browser tab. Ideal for rapid prototyping and MVPs.</p>
+
+                    <h3>Extension Ecosystem</h3>
+                    <p>Using <strong>Claude Dev (Roo Code)</strong> and <strong>Continue.dev</strong> allows for local/custom model workflows, giving you privacy and control.</p>
+                `
+            }
+        ]
+    },
+    {
+        title: "Module 6: Mastering the Prompt-Code Loop",
+        slug: "prompt-code-loop",
+        desc: "How to talk to the machine so it actually listens.",
+        chapters: [
+            {
+                title: "The 'Spec-First' Methodology",
+                slug: "spec-first-methodology",
+                content: `
+                    <h3>Defining the North Star</h3>
+                    <p>Never write code without a plan. Write a <code>spec.md</code> before the first line of code. This aligns the AI's goal with yours.</p>
+                    
+                    <h4>The Iterative Prompt</h4>
+                    <p>Move from "Build a todo app" to "Implement a CRUD task manager with Supabase auth and Tailwind dark mode." Specificity wins.</p>
+                `
+            },
+            {
+                title: "Handling the 'Hallucination Wall'",
+                slug: "hallucination-wall",
+                content: `
+                    <h3>Debug-Driven Development</h3>
+                    <p>Feed terminal errors back into the chat. The AI is great at fixing its own mistakes if you show them the error log.</p>
+                    
+                    <h4>The 'Context Reset'</h4>
+                    <p>When the AI gets confused, don't argue. Start a new chat. Clear the context and provide the current state of the code to get a fresh perspective.</p>
+                `
+            }
+        ]
+    },
+    {
+        title: "Module 7: The Clean Code Console",
+        slug: "clean-code-console",
+        desc: "Using the terminal to polish AI-generated 'spaghetti'.",
+        chapters: [
+            {
+                title: "Essential CLI for the AI Era",
+                slug: "essential-cli",
+                content: `
+                    <h3>The Cleanup Kit</h3>
+                    <p>AI code can be messy. Use tools to force standards:</p>
+                    <ul>
+                        <li><strong>Prettier:</strong> For formatting.</li>
+                        <li><strong>ESLint:</strong> For logic and quality checks.</li>
+                        <li><strong>Black:</strong> For Python formatting.</li>
+                    </ul>
+                    
+                    <h4>Git as a Safety Net</h4>
+                    <p>Prompt the AI to write meaningful commit messages. Use <code>git checkout</code> effectively to undo "bad AI rabbit holes".</p>
+                `
+            },
+            {
+                title: "Terminal Automation",
+                slug: "terminal-automation",
+                content: `
+                    <h3>One-Liners for Health</h3>
+                    <p>Use <code>grep</code> and <code>find</code> to audit the AI’s work. Look for hardcoded secrets or leftover console logs.</p>
+                    
+                    <h4>The Build Pipeline</h4>
+                    <p><code>npm run build</code> or <code>docker build</code> is the ultimate truth. If it doesn't build, the code is worthless.</p>
+                `
+            }
+        ]
+    },
+    {
+        title: "Module 8: Full-Stack Integration",
+        slug: "full-stack-integration",
+        desc: "Taking it out of the IDE and into the world.",
+        chapters: [
+            {
+                title: "Database & Auth Agents",
+                slug: "database-auth",
+                content: `
+                    <h3>Supabase & Firebase</h3>
+                    <p>Direct the AI to write schema migrations and security rules. Don't do it manually.</p>
+                    
+                    <h4>API Architecture</h4>
+                    <p>Design REST vs GraphQL through AI dialogue. Let it weigh the pros and cons for your specific use case.</p>
+                `
+            },
+            {
+                title: "The 'One-Click' Reality",
+                slug: "one-click-deployment",
+                content: `
+                    <h3>Vercel/Netlify Deployment</h3>
+                    <p>Integrate CI/CD so your AI changes go live instantly. Speed is everything.</p>
+                    
+                    <h4>Monitoring</h4>
+                    <p>Use AI to write its own error-logging and observability logic. Self-healing systems are the goal.</p>
+                `
+            }
+        ]
+    },
+    {
+        title: "Module 9: Advanced AI Orchestration",
+        slug: "advanced-orchestration",
+        desc: "Becoming the Conductor.",
+        chapters: [
+            {
+                title: "Multi-Agent Workflows",
+                slug: "multi-agent-workflows",
+                content: `
+                    <h3>The Architect vs. The Builder</h3>
+                    <p>Use one AI (like Claude 3.5 Sonnet) to plan and another to execute. Specialization leads to better results.</p>
+                    
+                    <h4>Custom Instructions</h4>
+                    <p>Build your own <code>.ai-instructions</code> file to maintain a specific "voice" and "stack" across every file.</p>
+                `
+            },
+            {
+                title: "Future-Proofing",
+                slug: "future-proofing",
+                content: `
+                    <h3>The Evolving Stack</h3>
+                    <p>Stay updated. Tools like <strong>v0.dev</strong>, <strong>Lovable</strong>, and <strong>Bolt.new</strong> are changing frontend rapid-prototyping. Don't get stuck in the past.</p>
+                `
+            }
+        ]
+    },
+    {
+        title: "Module 10: The Agentic Architect",
+        slug: "agentic-architect",
+        desc: "Moving from single prompts to autonomous systems.",
+        chapters: [
+            {
+                title: "From 'Chat' to 'Agent'",
+                slug: "chat-to-agent",
+                content: `
+                    <h3>Tool Use (Function Calling)</h3>
+                    <p>Teaching the AI how to use a calculator, a search engine, or a database. It stops being a text generator and becomes a tool user.</p>
+                    
+                    <h4>The Reasoning Loop (ReAct)</h4>
+                    <p>How agents "Think" before they "Act." Understanding the internal monologue of an autonomous system.</p>
+                `
+            },
+            {
+                title: "Designing Multi-Agent Systems",
+                slug: "designing-multi-agent",
+                content: `
+                    <h3>The Triage Pattern</h3>
+                    <p>Building a gateway agent to route user requests to the correct specialist.</p>
+                    
+                    <h4>The Human-in-the-Loop</h4>
+                    <p>Designing "Checkpoints" where the agent must ask for permission before taking critical actions (deleting files, spending money).</p>
+                `
+            },
+            {
+                title: "State & Memory",
+                slug: "state-and-memory",
+                content: `
+                    <h3>Short-term Memory</h3>
+                    <p>Managing the conversation history window. Knowing what to keep and what to discard.</p>
+                    
+                    <h4>Long-term Memory</h4>
+                    <p>Using Vector Databases (Pinecone/Weaviate) so the agent remembers the user’s preferences across different sessions.</p>
+                `
+            }
+        ]
     }
 ];
