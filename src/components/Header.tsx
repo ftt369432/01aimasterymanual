@@ -2,51 +2,34 @@
 
 import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';
-import { Maximize, Minimize, Bookmark, BookOpen, Trash2 } from 'lucide-react';
+import { Maximize, Minimize, Bookmark, BookOpen, Trash2, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useBookmarks } from '@/context/BookmarkContext';
 import { usePathname } from 'next/navigation';
 
-export default function Header() {
+interface HeaderProps {
+    onToggleSidebar?: () => void;
+    isSidebarOpen?: boolean;
+}
+
+export default function Header({ onToggleSidebar, isSidebarOpen }: HeaderProps) {
     const [isFullscreen, setIsFullscreen] = useState(false);
     const { bookmarks, toggleBookmark, isBookmarked, removeBookmark } = useBookmarks();
     const pathname = usePathname();
     const [showBookmarks, setShowBookmarks] = useState(false);
 
-    // Handle Fullscreen
     const toggleFullscreen = async () => {
-        console.log("Toggle fullscreen clicked");
         try {
             const elem = document.documentElement as any;
-            const isFullscreen = document.fullscreenElement || (document as any).webkitFullscreenElement || (document as any).mozFullScreenElement || (document as any).msFullscreenElement;
+            const isFs = document.fullscreenElement || (document as any).webkitFullscreenElement;
 
-            console.log("Current fullscreen state:", isFullscreen);
-
-            if (!isFullscreen) {
-                console.log("Attempting to enter fullscreen...");
-                if (elem.requestFullscreen) {
-                    await elem.requestFullscreen();
-                } else if (elem.webkitRequestFullscreen) { /* Safari */
-                    await elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) { /* IE11 */
-                    await elem.msRequestFullscreen();
-                } else if (elem.mozRequestFullScreen) { /* Firefox */
-                    await elem.mozRequestFullScreen();
-                }
-                console.log("Entered fullscreen");
+            if (!isFs) {
+                if (elem.requestFullscreen) await elem.requestFullscreen();
+                else if (elem.webkitRequestFullscreen) await elem.webkitRequestFullscreen();
                 setIsFullscreen(true);
             } else {
-                console.log("Attempting to exit fullscreen...");
-                if (document.exitFullscreen) {
-                    await document.exitFullscreen();
-                } else if ((document as any).webkitExitFullscreen) { /* Safari */
-                    await (document as any).webkitExitFullscreen();
-                } else if ((document as any).msExitFullscreen) { /* IE11 */
-                    await (document as any).msExitFullscreen();
-                } else if ((document as any).mozCancelFullScreen) { /* Firefox */
-                    await (document as any).mozCancelFullScreen();
-                }
-                console.log("Exited fullscreen");
+                if (document.exitFullscreen) await document.exitFullscreen();
+                else if ((document as any).webkitExitFullscreen) await (document as any).webkitExitFullscreen();
                 setIsFullscreen(false);
             }
         } catch (err) {
@@ -54,40 +37,49 @@ export default function Header() {
         }
     };
 
-    // Listen for fullscreen changes (ESC key, etc.)
     useEffect(() => {
         const handleChange = () => {
-            setIsFullscreen(!!document.fullscreenElement || !!(document as any).webkitFullscreenElement || !!(document as any).mozFullScreenElement || !!(document as any).msFullscreenElement);
+            setIsFullscreen(!!document.fullscreenElement || !!(document as any).webkitFullscreenElement);
         };
         document.addEventListener('fullscreenchange', handleChange);
         document.addEventListener('webkitfullscreenchange', handleChange);
-        document.addEventListener('mozfullscreenchange', handleChange);
-        document.addEventListener('MSFullscreenChange', handleChange);
         return () => {
             document.removeEventListener('fullscreenchange', handleChange);
             document.removeEventListener('webkitfullscreenchange', handleChange);
-            document.removeEventListener('mozfullscreenchange', handleChange);
-            document.removeEventListener('MSFullscreenChange', handleChange);
         };
     }, []);
 
     const isCurrentBookmarked = isBookmarked(pathname);
 
     return (
-        <header style={{
+        <header className="glass-panel" style={{
             position: 'fixed',
             top: 0,
             left: 0,
             right: 0,
-            zIndex: 50,
-            padding: '1rem 2rem',
+            zIndex: 100,
+            height: '60px',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            pointerEvents: 'none'
+            padding: '0 1.5rem',
+            borderRadius: 0,
+            borderBottom: '1px solid var(--border)',
+            backdropFilter: 'blur(20px)',
+            background: 'rgba(var(--background-rgb), 0.8)'
         }}>
-            {/* Logo / Title Area */}
-            <div style={{ pointerEvents: 'auto' }}>
+            {/* Left Section: Menu + Logo */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                {onToggleSidebar && (
+                    <button
+                        onClick={onToggleSidebar}
+                        className="btn-icon"
+                        aria-label="Toggle sidebar"
+                        style={{ padding: '0.5rem' }}
+                    >
+                        {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
+                    </button>
+                )}
                 <Link href="/" style={{
                     fontWeight: 700,
                     fontSize: '1.25rem',
@@ -96,21 +88,23 @@ export default function Header() {
                     gap: '0.5rem',
                     color: 'var(--foreground)'
                 }}>
-                    <span className="text-gradient">AI Mastery</span>
+                    <BookOpen size={24} style={{ color: 'var(--primary)' }} />
+                    <span className="text-gradient">AI Mastery Manual</span>
                 </Link>
             </div>
 
-            {/* Actions Area */}
-            <div className="glass-panel" style={{
-                pointerEvents: 'auto',
+            {/* Center Section: Search (placeholder for future) */}
+            <div style={{ flex: 1, maxWidth: '400px', margin: '0 2rem' }}>
+                {/* Future search bar */}
+            </div>
+
+            {/* Right Section: Actions */}
+            <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.5rem',
-                borderRadius: '9999px', // Pill shape container
-                transform: 'none' // Override hover transform to prevent moving
+                gap: '0.5rem'
             }}>
-                {/* Toggle Bookmark for Current Page */}
+                {/* Bookmark Current Page */}
                 <button
                     onClick={() => toggleBookmark(document.title || pathname)}
                     className="btn-icon"
@@ -120,7 +114,7 @@ export default function Header() {
                     <Bookmark size={18} fill={isCurrentBookmarked ? 'currentColor' : 'none'} />
                 </button>
 
-                {/* View Bookmarks List */}
+                {/* Bookmarks Dropdown */}
                 <div style={{ position: 'relative' }}>
                     <button
                         onClick={() => setShowBookmarks(!showBookmarks)}
@@ -128,30 +122,51 @@ export default function Header() {
                         aria-label="View bookmarks"
                     >
                         <BookOpen size={18} />
+                        {bookmarks.length > 0 && (
+                            <span style={{
+                                position: 'absolute',
+                                top: '-2px',
+                                right: '-2px',
+                                background: 'var(--primary)',
+                                color: 'white',
+                                fontSize: '0.65rem',
+                                width: '16px',
+                                height: '16px',
+                                borderRadius: '50%',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontWeight: 'bold'
+                            }}>
+                                {bookmarks.length}
+                            </span>
+                        )}
                     </button>
 
                     {showBookmarks && (
                         <>
                             <div
-                                style={{ position: 'fixed', inset: 0, zIndex: 40 }}
+                                style={{ position: 'fixed', inset: 0, zIndex: 90 }}
                                 onClick={() => setShowBookmarks(false)}
                             />
                             <div className="glass-panel" style={{
                                 position: 'absolute',
-                                top: '120%',
+                                top: 'calc(100% + 0.5rem)',
                                 right: 0,
                                 width: '20rem',
                                 padding: '1rem',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 gap: '0.5rem',
-                                zIndex: 50
+                                zIndex: 100
                             }}>
-                                <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', color: 'var(--primary)' }}>Your Bookmarks</h3>
+                                <h3 style={{ fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem', color: 'var(--primary)' }}>
+                                    Your Bookmarks
+                                </h3>
                                 {bookmarks.length === 0 ? (
                                     <p style={{ fontSize: '0.875rem', opacity: 0.6 }}>No bookmarks yet.</p>
                                 ) : (
-                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', maxHeight: '60vh', overflowY: 'auto' }}>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', maxHeight: '300px', overflowY: 'auto' }}>
                                         {bookmarks.map((b) => (
                                             <div key={b.path} style={{
                                                 display: 'flex',
@@ -185,7 +200,8 @@ export default function Header() {
                                                         border: 'none',
                                                         cursor: 'pointer',
                                                         opacity: 0.5,
-                                                        padding: '0.25rem'
+                                                        padding: '0.25rem',
+                                                        color: 'var(--foreground)'
                                                     }}
                                                 >
                                                     <Trash2 size={14} />
@@ -199,7 +215,7 @@ export default function Header() {
                     )}
                 </div>
 
-                <div style={{ width: '1px', height: '1.5rem', background: 'var(--border)', margin: '0 0.25rem' }} />
+                <div style={{ width: '1px', height: '1.5rem', background: 'var(--border)', margin: '0 0.5rem' }} />
 
                 {/* Fullscreen Toggle */}
                 <button
