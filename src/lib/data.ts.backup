@@ -627,7 +627,7 @@ export const courseModules = [
         ]
     },
     {
-        title: "Module 3: Agentic Workflows",
+        title: "Module 4: Agentic Workflows",
         slug: "agentic-workflows",
         desc: "Stop working with AI. Start working through AI.",
         chapters: [
@@ -708,7 +708,7 @@ export const courseModules = [
         ]
     },
     {
-        title: "Module 4: Business & Monetization",
+        title: "Module 5: Business & Monetization",
         slug: "business-monetization",
         desc: "Turning skills into income.",
         chapters: [
@@ -780,7 +780,7 @@ export const courseModules = [
         ]
     },
     {
-        title: "Module 5: The New IDE Landscape",
+        title: "Module 6: The New IDE Landscape",
         slug: "new-ide-landscape",
         desc: "Design a cockpit that makes AI useful by default.",
         chapters: [
@@ -862,7 +862,7 @@ export const courseModules = [
         ]
     },
     {
-        title: "Module 6: Mastering the Prompt-Code Loop",
+        title: "Module 7: Mastering the Prompt-Code Loop",
         slug: "prompt-code-loop",
         desc: "Prompting is not magic. It is a disciplined conversation.",
         chapters: [
@@ -938,7 +938,7 @@ export const courseModules = [
         ]
     },
     {
-        title: "Module 7: The Clean Code Console",
+        title: "Module 8: The Clean Code Console",
         slug: "clean-code-console",
         desc: "Using the terminal as a truth machine. Confidence meets reality.",
         chapters: [
@@ -1009,7 +1009,7 @@ export const courseModules = [
         ]
     },
     {
-        title: "Module 8: Full-Stack Integration",
+        title: "Module 9: Full-Stack Integration",
         slug: "full-stack-integration",
         desc: "Integration is about responsibility. Shipping is a contract with reality.",
         chapters: [
@@ -1077,7 +1077,7 @@ export const courseModules = [
         ]
     },
     {
-        title: "Module 9: Advanced AI Orchestration",
+        title: "Module 10: Advanced AI Orchestration",
         slug: "advanced-orchestration",
         desc: "Management without drowning. Design systems that can evolve.",
         chapters: [
@@ -1138,7 +1138,7 @@ export const courseModules = [
         ]
     },
     {
-        title: "Module 10: The Agentic Architect",
+        title: "Module 11: The Agentic Architect",
         slug: "agentic-architect",
         desc: "Design systems that think, act, adapt, and endure.",
         chapters: [
@@ -1211,7 +1211,7 @@ export const courseModules = [
         ]
     },
     {
-        title: "Module 11: The Zero-Cost Stack",
+        title: "Module 12: The Zero-Cost Stack",
         slug: "zero-cost-stack",
         desc: "The best free tools for Hosting, Backend, and AI. Where to build your empire for $0.",
         chapters: [
@@ -1309,7 +1309,7 @@ export const courseModules = [
         ]
     },
     {
-        title: "Module 12: The Library of Concepts",
+        title: "Module 13: The Library of Concepts",
         slug: "library-of-concepts",
         desc: "Advanced patterns and foundational rules synthesized from expert literature.",
         chapters: [
@@ -1367,7 +1367,7 @@ export const courseModules = [
         ]
     },
     {
-        title: "Module 13: The Modern Builder's Toolkit",
+        title: "Module 14: The Modern Builder's Toolkit",
         slug: "modern-builders-toolkit",
         desc: "Tools for Speed, Tools for Profit. The ecosystem explained.",
         chapters: [
