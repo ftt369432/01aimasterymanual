@@ -1,8 +1,12 @@
 import Link from 'next/link';
-import { courseModules } from '@/lib/data';
+import { getCourseModules } from '@/lib/data';
+import { cookies } from 'next/headers';
 import { ArrowLeft } from 'lucide-react';
 
-export default function ManualPage() {
+export default async function ManualPage() {
+    const cookieStore = await cookies();
+    const lang = cookieStore.get('ai-mastery-lang')?.value || 'en';
+    const courseModules = getCourseModules(lang);
     return (
         <div>
             <div style={{ marginBottom: '3rem' }}>

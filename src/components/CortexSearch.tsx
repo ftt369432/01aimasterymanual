@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Search, X, Hash, Book } from 'lucide-react';
-import { courseModules } from '@/lib/data';
+import { getCourseModules } from '@/lib/data';
+import { useLanguage } from '@/context/LanguageContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useSearch } from '@/context/SearchContext';
@@ -17,6 +18,8 @@ interface SearchResult {
 
 export function CortexSearch() {
     const { isSearchOpen: isOpen, closeSearch: onClose } = useSearch();
+    const { language } = useLanguage();
+    const courseModules = getCourseModules(language);
     const [query, setQuery] = useState('');
     const [results, setResults] = useState<SearchResult[]>([]);
     const [selectedIndex, setSelectedIndex] = useState(0);

@@ -1,4 +1,5 @@
-import { courseModules } from '@/lib/data';
+import { getCourseModules } from '@/lib/data';
+import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -11,6 +12,9 @@ export default async function ChapterPage({
     params: Promise<{ moduleSlug: string; chapterSlug: string }>;
 }) {
     const { moduleSlug, chapterSlug } = await params;
+    const cookieStore = await cookies();
+    const lang = cookieStore.get('ai-mastery-lang')?.value || 'en';
+    const courseModules = getCourseModules(lang);
 
     const module = courseModules.find((m) => m.slug === moduleSlug);
     const chapter = module?.chapters.find((c) => c.slug === chapterSlug);

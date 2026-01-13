@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { useBookmarks } from '@/context/BookmarkContext';
 import { useActionMode } from '@/context/ActionContext';
 import { useSearch } from '@/context/SearchContext';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import { usePathname } from 'next/navigation';
 
 interface HeaderProps {
@@ -267,6 +268,9 @@ export default function Header({ onToggleSidebar, isSidebarOpen }: HeaderProps) 
 
                 {/* Theme Toggle */}
                 <ThemeToggle />
+
+                {/* Language Switcher */}
+                <LanguageSwitcher />
             </div>
 
         </header>

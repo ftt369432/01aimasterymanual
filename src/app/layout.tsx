@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import { BookmarkProvider } from "@/context/BookmarkContext";
 import { ActionProvider } from "@/context/ActionContext";
 import { SearchProvider } from "@/context/SearchContext";
+import { LanguageProvider } from "@/context/LanguageContext";
 import Header from "@/components/Header";
 import { CortexSearch } from "@/components/CortexSearch";
 
@@ -34,11 +35,13 @@ export default function RootLayout({
         <ThemeProvider defaultTheme="dark" storageKey="ai-mastery-theme">
           <BookmarkProvider>
             <ActionProvider>
-              <SearchProvider>
-                <Header />
-                {children}
-                <CortexSearch />
-              </SearchProvider>
+              <LanguageProvider>
+                <SearchProvider>
+                  <Header />
+                  {children}
+                  <CortexSearch />
+                </SearchProvider>
+              </LanguageProvider>
             </ActionProvider>
           </BookmarkProvider>
         </ThemeProvider>

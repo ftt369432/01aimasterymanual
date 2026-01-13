@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { courseModules } from '@/lib/data';
+import { getCourseModules } from '@/lib/data';
+import { useLanguage } from '@/context/LanguageContext';
 import { ChevronRight, ChevronDown, BookOpen, Lock, User, LogOut, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 import AuthModal from './AuthModal';
@@ -15,6 +16,8 @@ interface SidebarProps {
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     const pathname = usePathname();
+    const { language } = useLanguage();
+    const courseModules = getCourseModules(language);
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const { isCompleted, progressPercentage } = useProgress();

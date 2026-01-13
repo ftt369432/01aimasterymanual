@@ -1,4 +1,5 @@
-import { courseModules } from '@/lib/data';
+import { getCourseModules } from '@/lib/data';
+import { cookies } from 'next/headers';
 import { Metadata } from 'next';
 import { PrintAutoTrigger } from '@/components/PrintAutoTrigger';
 
@@ -7,7 +8,10 @@ export const metadata: Metadata = {
     description: 'Printable version of the AI Mastery Manual',
 };
 
-export default function PrintPage() {
+export default async function PrintPage() {
+    const cookieStore = await cookies();
+    const lang = cookieStore.get('ai-mastery-lang')?.value || 'en';
+    const courseModules = getCourseModules(lang);
     return (
         <div
             className="print-container"
